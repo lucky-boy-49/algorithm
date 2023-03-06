@@ -1,6 +1,7 @@
 package simple;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 /**
  * 类Solution
@@ -103,10 +104,41 @@ public class Solution {
         return true;
     }
 
+    public boolean isValid(String s) {
+        Stack<Character> characterStack = new Stack<>();
+        char[] sCharArray = s.toCharArray();
+        for (int i = 0; i < sCharArray.length; i++) {
+            if (sCharArray[i] == '(' || sCharArray[i] == '[' || sCharArray[i] == '{') {
+                characterStack.push(sCharArray[i]);
+            } else {
+                if (characterStack.isEmpty()) {
+                    return false;
+                }
+                char left_char = characterStack.pop();
+                char rc = sCharArray[i];
+                if (rc == ')') {
+                    if (left_char != '(') {
+                        return false;
+                    }
+                }
+                if (rc == '}') {
+                    if (left_char != '{') {
+                        return false;
+                    }
+                }
+                if (rc == ']') {
+                    if (left_char != '[') {
+                        return false;
+                    }
+                }
+            }
+        }
+        return characterStack.isEmpty();
+    }
+
     public static void main(String[] args) {
-        String ransomNote = "aa", magazine = "aab";
         Solution solution = new Solution();
-        solution.canConstruct(ransomNote, magazine);
+        solution.isValid("()");
     }
 
 }
