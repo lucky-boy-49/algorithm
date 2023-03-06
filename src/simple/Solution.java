@@ -54,13 +54,67 @@ public class Solution {
         return answer;
     }
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        int[] nums = {4, 5, 2, 1}, queries = {3, 10, 21};
-        for (int i : solution.answerQueries(nums, queries)) {
-            System.out.println(i);
-        }
+    public ListNode middleNode(ListNode head) {
+        // 经典算法
+//        ListNode q = head, p = head;
+//        int sum = 0;
+//        while (q != null) {
+//            sum++;
+//            q = q.next;
+//        }
+//        for (int i = 1; i < (sum/2 + 1); i++ ) {
+//            p = p.next;
+//        }
+//        return p;
 
+        // 快慢指针
+        ListNode q = head, p = head;
+        while (q != null && q.next != null) {
+            q = q.next.next;
+            p = p.next;
+        }
+        return p;
     }
 
+    /**
+     * 383. 赎金信
+     * 给你两个字符串：ransomNote 和 magazine ，判断 ransomNote 能不能由 magazine 里面的字符构成。
+     * 如果可以，返回 true ；否则返回 false 。
+     * magazine 中的每个字符只能在 ransomNote 中使用一次。
+     * @param ransomNote
+     * @param magazine
+     * @return
+     */
+    public boolean canConstruct(String ransomNote, String magazine) {
+        char[] magazineCharArray = magazine.toCharArray();
+        int[] ints = new int[magazineCharArray.length];
+        for (char c : ransomNote.toCharArray()) {
+            int i;
+            for (i = 0; i < magazineCharArray.length; i++) {
+                if (c == magazineCharArray[i] && ints[i] == 0) {
+                    ints[i]++;
+                    break;
+                }
+            }
+            if (i == magazineCharArray.length) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String ransomNote = "aa", magazine = "aab";
+        Solution solution = new Solution();
+        solution.canConstruct(ransomNote, magazine);
+    }
+
+}
+
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode() {}
+    ListNode(int val) { this.val = val; }
+    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 }
