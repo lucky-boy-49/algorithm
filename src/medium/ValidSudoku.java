@@ -1,4 +1,4 @@
-package simple;
+package medium;
 /**
  * 36. 有效的数独
  * @author HJ
