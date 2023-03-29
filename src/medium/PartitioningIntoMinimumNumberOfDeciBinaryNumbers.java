@@ -21,7 +21,7 @@ public class PartitioningIntoMinimumNumberOfDeciBinaryNumbers {
 
     public static void main(String[] args) {
         PartitioningIntoMinimumNumberOfDeciBinaryNumbers numbers = new PartitioningIntoMinimumNumberOfDeciBinaryNumbers();
-        String n = "32";
+        String n = "36";
         System.out.println(numbers.minPartitions(n));
     }
 
