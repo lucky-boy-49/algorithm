@@ -2,40 +2,33 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        // 控制台接收字符
-        String str = sc.nextLine();
-        HashMap<Character, Integer> map = new HashMap<>();
-        // 转小写
+        String str = "你你好好A1133aa";
         str = str.toLowerCase();
-        for (int i = 0;i<str.length();i++){
-            char c = str.charAt(i);
-            // 这里判断就只会有字符a-z进去，其他的进不去 else哪里也不用在判断
-            if (c >= 'a' && c <= 'z') {
-                if(map.containsKey(c)){
-                    // 如果有+1
-                    map.put(c,map.get(c)+1);
-                }else {
-                    // 没有为1
-                    map.put(c,1);
+        char[] charArray = str.toCharArray();
+        int l = 0, m = 0;
+        StringBuilder result = new StringBuilder();
+        HashSet<Character> characters = new HashSet<>();
+        while (m < charArray.length) {
+            if (charArray[l] >= 'a' && charArray[l] <='z' && charArray[m] >= 'a' && charArray[m] <= 'z') {
+                if (charArray[l] == charArray[m]) {
+                    characters.add(charArray[l]);
+                    l = m + 1;
+                    m += 1;
                 }
             }
-        }
-        Integer maxNum = Collections.max(map.values());
-        Set<Character> set = new HashSet<>();
-        for (Map.Entry<Character,Integer> entry : map.entrySet()){
-            if(entry.getValue().equals(maxNum)){
-                set.add(entry.getKey());
+            if (charArray[l] <= 'a' || charArray[l] >= 'z') {
+                l++;
+            }
+            if (charArray[m] <= 'a' || charArray[m] >= 'z') {
+                m++;
             }
         }
-        String s = "";
-        for (Character i: set) {
-            s += i;
-        }
-        char[] c = s.toCharArray();
-        Arrays.sort(c);
-        for(int i = 0;i<c.length;i++){
-            System.out.println(c[i]);
+        if (characters.size() == 0) {
+            System.out.println("false");
+        } else {
+            result.append("true ");
+            characters.forEach(result::append);
+            System.out.println(result.toString());
         }
     }
 }
