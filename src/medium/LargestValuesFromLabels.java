@@ -1,12 +1,8 @@
 package medium;
 
-import java.util.Collection;
 import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 /**
  * @author HJ
@@ -16,16 +12,6 @@ import java.util.stream.Stream;
 public class LargestValuesFromLabels {
 
     public int largestValuesFromLabels(int[] values, int[] labels, int numWanted, int useLimit) {
-        Stream<Integer> boxed = IntStream.range(0, values.length).boxed();
-        Map<Integer, List<Integer>> collect = boxed.collect(Collectors.groupingBy(i -> labels[i],
-                Collectors.mapping(i -> values[i],
-                        Collectors.toList())));
-        Collection<List<Integer>> values1 = collect.values();
-        Stream<Integer> integerStream = values1.stream().flatMap(list -> list.stream().sorted(Comparator.reverseOrder()).limit(useLimit));
-        Stream<Integer> sorted = integerStream.sorted(Comparator.reverseOrder());
-        Stream<Integer> limit = sorted.limit(numWanted);
-        IntStream intStream = limit.mapToInt(Integer::intValue);
-        int sum = intStream.sum();
         return IntStream.range(0, values.length).boxed()
                 .collect(Collectors.groupingBy(i -> labels[i],
                         Collectors.mapping(i -> values[i],
