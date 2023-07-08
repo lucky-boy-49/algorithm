@@ -18,8 +18,8 @@ public class ReverseString {
         ReverseString reverseString = new ReverseString();
         char[] s = {'h', 'e', 'l', 'l', 'e'};
         reverseString.reverseString(s);
-        for(int i = 0; i < s.length; i++) {
-            System.out.println(s[i]);
+        for (char c : s) {
+            System.out.println(c);
         }
     }
 
