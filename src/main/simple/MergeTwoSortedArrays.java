@@ -31,16 +31,21 @@ public class MergeTwoSortedArrays {
         }
 
         // 第二种
-        for(int j = 0; j != n; ++j) {
-            nums1[m+j] = nums2[j];
-        }
+        if (n >= 0) System.arraycopy(nums2, 0, nums1, m, n);
         Arrays.sort(nums1);
+    }
+
+    public void merge2(int[] nums1, int m, int[] nums2, int n) {
+        int curt = nums1.length - 1;
+        while (n > 0) {
+            nums1[curt--] = (m > 0 && nums1[m - 1] > nums2[n - 1]) ? nums1[--m] : nums2[--n];
+        }
     }
     public static void main(String[] args){
         MergeTwoSortedArrays mergeTwoSortedArrays = new MergeTwoSortedArrays();
-        int[] nums1 = {1, 2, 3, 0, 0, 0}, nums2 = {2, 5, 6};
-        int m = 3, n = 3;
-        mergeTwoSortedArrays.merge(nums1, m, nums2, n);
+        int[] nums1 = {0}, nums2 = {1};
+        int m = 0, n = 1;
+        mergeTwoSortedArrays.merge2(nums1, m, nums2, n);
         Arrays.stream(nums1).forEach(System.out::println);
     }
 }
