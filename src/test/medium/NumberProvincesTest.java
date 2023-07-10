@@ -12,7 +12,7 @@ class NumberProvincesTest {
         NumberProvinces numberProvinces = new NumberProvinces();
         int[][] isConnected = {{1,1,0},{1,1,0},{0,0,1}};
 
-        int circleNum = numberProvinces.findCircleNum(isConnected);
+        int circleNum = numberProvinces.findCircleNum2(isConnected);
 
         System.out.println(circleNum);
 
