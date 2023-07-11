@@ -37,4 +37,20 @@ public class FibonacciNumber {
         return (int) Math.round(fibN / sqrt5);
     }
 
+    public int fib3(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        int pre = 0, next = 1;
+        for (int i = 2; i < n; i++) {
+            int tmp = pre + next;
+            pre = next;
+            next = tmp;
+        }
+        return next;
+    }
+
 }
