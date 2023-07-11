@@ -13,10 +13,8 @@ public class MovingZero {
         for(int i = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
                 nums[temp++] = nums[i];
+                nums[i] = 0;
             }
-        }
-        while (temp < nums.length) {
-            nums[temp++] = 0;
         }
     }
 
