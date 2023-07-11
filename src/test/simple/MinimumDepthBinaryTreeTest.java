@@ -1,10 +1,8 @@
 package test.simple;
 
 import main.simple.MinimumDepthBinaryTree;
-import main.simple.TreeNode;
+import main.TreeNode;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class MinimumDepthBinaryTreeTest {
 

@@ -1,10 +1,10 @@
 package main.simple;
 
 
-import javax.xml.transform.Result;
+import main.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * 111 . 二叉树的最小深度

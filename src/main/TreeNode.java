@@ -1,8 +1,8 @@
-package main.simple;
+package main;
 
 public class TreeNode {
 
-    int value;
+    public int value;
     public TreeNode left;
 
     public TreeNode right;
