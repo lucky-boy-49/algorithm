@@ -26,9 +26,58 @@ package main.huawei_machine_test;
  * 编辑后的最终结果
  */
 public class CodeEditor {
-
-    public static void solution(String[] lines) {
-        
+    public static void solution(String[] line, String text) {
+        StringBuilder res = new StringBuilder();
+        res.append(text);
+        int i = 0;
+        for (String string : line) {
+            String[] s = string.split(" ");
+            String order = s[0];
+            String letter = s[1];
+            switch (order) {
+                case "FORWARD" -> {
+                    int x = Integer.parseInt(letter);
+                    if (i + x > res.length()) {
+                        i = res.length();
+                    } else {
+                        i += x;
+                    }
+                }
+                case "BACKWARD" -> {
+                    int x = Integer.parseInt(letter);
+                    if (i - x < 0) {
+                        i = 0;
+                    } else {
+                        i -= x;
+                    }
+                }
+                case "SEARCH-FORWARD" -> {
+                    int index = res.lastIndexOf(letter, i);
+                    if (index != -1) {
+                        i = index;
+                    }
+                }
+                case "SEARCH-BACKWARD" -> {
+                    int index = res.indexOf(letter, i);
+                    if (index != -1) {
+                        i = index;
+                    }
+                }
+                case "INSERT" -> {
+                    res.insert(i, letter);
+                    i = i + letter.length();
+                }
+                case "REPLACE" -> {
+                    res.replace(i, i + letter.length(), letter);
+                    i = i + letter.length();
+                }
+                case "DELETE" -> {
+                    int x = Integer.parseInt(letter);
+                    res.delete(i, i + x);
+                }
+            }
+        }
+        System.out.println(res.toString());
     }
 
 }
