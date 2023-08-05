@@ -1,7 +1,7 @@
-package test.medium;
+package test.huawei_machine_test;
 
+import main.huawei_machine_test.CalculateMaximumProduct;
 import org.junit.jupiter.api.Test;
-import test.huawei_machine_test.CalculateMaximumProduct;
 
 import java.util.Scanner;
 

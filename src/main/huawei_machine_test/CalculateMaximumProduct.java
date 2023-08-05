@@ -1,4 +1,4 @@
-package test.huawei_machine_test;
+package main.huawei_machine_test;
 
 /**
  * 计算最大乘积
