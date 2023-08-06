@@ -41,9 +41,14 @@ public class PythagoreanNumber {
                 }
             }
         }
-        list.forEach(a -> {
-            System.out.println(a[0] + " " + a[1] + " " + a[2]);
-        });
+        if (!list.isEmpty()) {
+            list.forEach(a -> {
+                System.out.println(a[0] + " " + a[1] + " " + a[2]);
+            });
+        } else {
+            System.out.println("Na");
+        }
+
     }
 
     private static boolean isCoprime(double num1, double num2) {
