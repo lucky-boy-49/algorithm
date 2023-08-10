@@ -18,7 +18,7 @@ public class LongestPalindrome {
 
         char[] charArray = s.toCharArray();
 
-        for (int i = 2; i < length; i++) {
+        for (int i = 2; i <= length; i++) {
             for (int j = 0; j < length; j++) {
                 int k = i + j - 1;
                 if (k >= length) {
