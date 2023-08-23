@@ -6,8 +6,17 @@ package main.simple;
 public class LengthOfLastWord {
 
     public int lengthOfLastWord(String s) {
-        String[] split = s.split(" ");
-        return split[split.length - 1].length();
+        char[] charArray = s.toCharArray();
+        int left = -1, right = -1;
+        for (int i = charArray.length - 1; i > -1; i--) {
+            if (charArray[i] != ' ' && right == -1) {
+                right = i;
+            } else if (charArray[i] == ' ' && right != -1) {
+                left = i;
+                break;
+            }
+        }
+        return right - left;
     }
 
 }
