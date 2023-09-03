@@ -1,4 +1,4 @@
-package main.medium;
+package main.simple;
 
 import java.util.Deque;
 import java.util.LinkedList;
