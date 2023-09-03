@@ -23,7 +23,7 @@ public class BinaryTreeInorderTraversal {
             return;
         }
         dfs(root.left);
-        result.add(root.value);
+        result.add(root.val);
         dfs(root.right);
     }
 

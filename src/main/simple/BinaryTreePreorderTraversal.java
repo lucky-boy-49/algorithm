@@ -13,7 +13,7 @@ public class BinaryTreePreorderTraversal {
         Deque<TreeNode> stack = new LinkedList<>();
         while (root != null || !stack.isEmpty()) {
             while (root != null) {
-                results.add(root.value);
+                results.add(root.val);
                 stack.push(root);
                 root = root.left;
             }

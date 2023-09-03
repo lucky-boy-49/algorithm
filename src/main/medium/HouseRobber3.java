@@ -18,7 +18,7 @@ public class HouseRobber3 {
         }
         int[] l = dfs(node.left);
         int[] r = dfs(node.right);
-        int selected = node.value + l[1] + r[1];
+        int selected = node.val + l[1] + r[1];
         int notSelected = Math.max(l[0], l[1]) + Math.max(r[0], r[1]);
         return new int[]{selected, notSelected};
     }

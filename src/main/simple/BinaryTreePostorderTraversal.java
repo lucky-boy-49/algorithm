@@ -25,7 +25,7 @@ public class BinaryTreePostorderTraversal {
             }
             root = stack.pop();
             if (root.left == null && root.right == prev) {
-                result.add(root.value);
+                result.add(root.val);
                 prev = root;
                 root = null;
             } else {
