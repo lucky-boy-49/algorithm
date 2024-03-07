@@ -9,7 +9,7 @@ public class ArrangingCoins {
         if (n <= 0) {
             return 0;
         }
-        int current = 0, i = 0;
+        int current = 0, i = 0; 
         while (current + i < n) {
             current += ++i;
             if (n - current < i + 1) {
