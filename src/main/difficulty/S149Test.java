@@ -9,6 +9,6 @@ class S149Test {
     @Test
     void maxPoints() {
         S149 s149 = new S149();
-        assertEquals(6, s149.maxPoints(new int[][]{{0, 0}}));
+        assertEquals(1, s149.maxPoints(new int[][]{{0, 0}}));
     }
 }
